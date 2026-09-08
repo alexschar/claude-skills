@@ -1,0 +1,19 @@
+{
+  "name": "alexschar-skills",
+  "version": "1.0.0",
+  "description": "Alex Schar's self-contained Claude Code skills: planning (spar, war-doc, plan-interrogator, gap-check), review (fact-check, try-again), communication (bite-size, plain-english), and utilities (secret-sweep, shopper, loopy, ui-redesign-from-reference).",
+  "author": {
+    "name": "Alex Schar",
+    "url": "https://alexschar.dev"
+  },
+  "license": "MIT",
+  "homepage": "https://github.com/alexschar/claude-skills",
+  "repository": "https://github.com/alexschar/claude-skills.git",
+  "keywords": [
+    "skills",
+    "planning",
+    "review",
+    "prd",
+    "workflow"
+  ]
+}
