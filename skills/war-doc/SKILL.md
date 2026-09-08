@@ -10,7 +10,7 @@ A plan assumes every move works. A wargame writes down, per move, what you will 
 what you'll see if it didn't, and what to do then; every business unknown becomes a named variable
 Alex rules on BEFORE code; the last move is always Alex checking the live surface. Alex's verdict
 (2026-08-20, Service Agreement): "worked so much better than any other build."
-Extends `~/Tidied/Docs/WarDoc_BluePrint.md` (the template) with the execution ritual that made it
+Extends the WarDoc blueprint template with the execution ritual that made it
 work. Sits beside /spar: /spar
 makes a one-page Done list for a single /goal; /war-doc is for missions with several moves and real
 unknowns.
