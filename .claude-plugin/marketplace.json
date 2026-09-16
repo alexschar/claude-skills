@@ -1,6 +1,6 @@
 {
   "name": "alexschar-skills",
-  "description": "Alex Schar's self-contained Claude Code skills: planning (spar, war-doc, plan-interrogator, gap-check), review (fact-check, try-again), communication (bite-size, plain-english), and utilities (secret-sweep, shopper, loopy, ui-redesign-from-reference).",
+  "description": "Alex Schar's self-contained Claude Code skills: planning (spar, war-doc, plan-interrogator, gap-check), review (fact-check, try-again), communication (bite-size, plain-english), design & explainer (instruction-artifact, design-taste-recall, design-dna, office-guide), and utilities (secret-sweep, shopper, loopy, ui-redesign-from-reference).",
   "owner": {
     "name": "Alex Schar",
     "url": "https://alexschar.dev"
@@ -9,10 +9,10 @@
     {
       "name": "alexschar-skills",
       "source": "./",
-      "description": "Alex Schar's self-contained Claude Code skills: planning (spar, war-doc, plan-interrogator, gap-check), review (fact-check, try-again), communication (bite-size, plain-english), and utilities (secret-sweep, shopper, loopy, ui-redesign-from-reference).",
-      "version": "1.0.0",
+      "description": "Alex Schar's self-contained Claude Code skills: planning (spar, war-doc, plan-interrogator, gap-check), review (fact-check, try-again), communication (bite-size, plain-english), design & explainer (instruction-artifact, design-taste-recall, design-dna, office-guide), and utilities (secret-sweep, shopper, loopy, ui-redesign-from-reference).",
+      "version": "1.1.0",
       "category": "productivity",
-      "tags": ["planning", "review", "workflow"]
+      "tags": ["planning", "review", "workflow", "design"]
     }
   ]
 }

@@ -1,0 +1,241 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Connecting the Office Printer</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600&display=swap">
+<script>document.documentElement.classList.add('js')</script>
+<style>
+  :root{
+    --bg:#FAFAF6; --surface:#FFFFFF; --ink:#1F2419; --muted:#5C6352; --line:#DCDFD2;
+    --accent:#4A5D23; --accent-ink:#FFFFFF; --tint:#EEF2E4; --warn:#8A5A14; --warn-bg:#FBF3E4;
+    --serif:"DM Serif Display",Georgia,"Times New Roman",serif;
+    --sans:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --bg:#15180F; --surface:#1D2216; --ink:#E9EADF; --muted:#A9AF9C; --line:#353C2B;
+      --accent:#A6C46A; --accent-ink:#15180F; --tint:#232A1A; --warn:#E2B76A; --warn-bg:#2A2416;
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#15180F; --surface:#1D2216; --ink:#E9EADF; --muted:#A9AF9C; --line:#353C2B;
+    --accent:#A6C46A; --accent-ink:#15180F; --tint:#232A1A; --warn:#E2B76A; --warn-bg:#2A2416;
+  }
+  body{background:var(--bg);color:var(--ink);font-family:var(--sans);line-height:1.5;margin:0;padding:0 20px 80px;font-size:16px}
+  .wrap{max-width:760px;margin:0 auto}
+  header{padding:56px 0 24px}
+  .eyebrow{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:600}
+  h1{font-family:var(--serif);font-weight:400;font-size:44px;line-height:1.08;margin:10px 0 12px;text-wrap:balance}
+  .lede{font-size:18px;max-width:58ch;margin:0}
+  .intro{font-size:15px;color:var(--ink);max-width:60ch;margin:4px 0 0}
+  .goal{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:26px 0 8px}
+  .goal>div{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:14px 16px}
+  .goal .k{font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:600;margin-bottom:4px}
+  .goal .v{font-size:15px}
+  h2{font-family:var(--serif);font-weight:400;font-size:28px;margin:40px 0 14px}
+  .steps{display:flex;flex-direction:column;gap:12px}
+  .step{display:grid;grid-template-columns:64px 1fr;gap:0 16px;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:16px 18px 16px 14px}
+  .num{font-family:var(--serif);font-size:40px;line-height:1;color:var(--accent);text-align:center;padding-top:2px}
+  .step h3{margin:0 0 4px;font-size:18px;font-weight:600}
+  .who{font-size:13px;color:var(--muted);margin-bottom:10px}
+  .who b{color:var(--ink);font-weight:600}
+  .row{display:grid;grid-template-columns:88px 1fr;gap:8px;font-size:15px;margin-top:6px}
+  .row .k{font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--accent);font-weight:600;padding-top:3px}
+  .row ol{margin:2px 0 0;padding-left:20px}
+  .row ol li{margin:3px 0}
+  .row ul{margin:2px 0 0;padding-left:20px}
+  .row ul li{margin:3px 0}
+  .sub{margin-top:16px;padding-top:14px;border-top:1px dashed var(--line)}
+  .sub h4{margin:0 0 6px;font-size:16px;font-weight:600}
+  .sub h4 span{color:var(--accent);font-family:var(--serif);font-weight:400;font-size:22px;margin-right:8px}
+  code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:13px;background:var(--tint);padding:1px 5px;border-radius:4px;overflow-wrap:anywhere;word-break:break-word}
+  kbd{font:600 13px var(--sans);border:1px solid var(--line);border-bottom-width:2px;border-radius:5px;padding:1px 6px;background:var(--surface)}
+  .path{font-weight:600}
+  .path i{font-style:normal;color:var(--muted);padding:0 3px}
+  .note{background:var(--warn-bg);color:var(--warn);border-radius:8px;padding:8px 12px;font-size:14px;margin-top:8px}
+  .note b{color:inherit}
+  table{border-collapse:collapse;width:100%;font-size:14px;margin-top:6px}
+  th,td{text-align:left;padding:6px 8px;border-bottom:1px solid var(--line);vertical-align:top}
+  th{font-size:12px;letter-spacing:.05em;text-transform:uppercase;color:var(--muted);font-weight:600}
+  td.n{font-variant-numeric:tabular-nums;white-space:nowrap}
+  .tbl{overflow-x:auto}
+  .same{background:var(--tint);border-radius:12px;padding:16px 20px}
+  .same ul,.ask ul{margin:6px 0 0;padding-left:20px}
+  .same li,.ask li{margin:4px 0}
+  .ask{border:2px solid var(--accent);border-radius:12px;padding:16px 20px;margin-top:28px}
+  .ask h2{margin:0 0 6px;font-size:24px}
+  .check label{display:block;margin:6px 0;padding-left:28px;position:relative}
+  .check input{position:absolute;left:4px;top:4px}
+  footer{margin-top:40px;color:var(--muted);font-size:13px}
+  .jump{position:sticky;top:0;z-index:5;background:var(--bg);padding:10px 0 8px;margin:0 0 4px;border-bottom:1px solid var(--line);display:flex;flex-wrap:wrap;gap:6px}
+  .jump a{display:inline-block;font-size:13px;font-weight:600;text-decoration:none;color:var(--ink);background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:4px 11px}
+  .jump a:hover,.jump a:focus-visible{border-color:var(--accent);color:var(--accent);outline:none}
+  .jump a.hl{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+  .live{font-size:13px;margin:10px 0 0}
+  .live a{color:var(--accent);font-weight:600;text-decoration:underline}
+  .live span{color:var(--muted)}
+  [id^="step-"],#flow,#fit,#part-a,#part-b,#who,#fix,#ready{scroll-margin-top:64px}
+  html{scroll-behavior:smooth}
+  @media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}
+  figure{margin:14px 0 2px;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:var(--surface)}
+  figure img{display:block;width:100%;height:auto}
+  .figure-placeholder{display:flex;align-items:center;justify-content:center;height:180px;background:var(--tint);color:var(--muted);font-size:13px}
+  figcaption{font-size:12.5px;color:var(--muted);padding:8px 12px;border-top:1px solid var(--line)}
+  .flow{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:20px 0 8px}
+  .flow>div{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:14px 16px}
+  .flow .n{display:block;font-family:var(--serif);font-size:28px;color:var(--accent);line-height:1;margin-bottom:6px}
+  .flow p{margin:0;font-size:15px}
+  .pick{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:14px 0}
+  .pick>div{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:14px 16px}
+  .pick .tag{display:inline-block;font-size:11px;letter-spacing:.06em;text-transform:uppercase;font-weight:600;color:var(--accent-ink);background:var(--accent);border-radius:999px;padding:2px 10px;margin-bottom:8px}
+  .pick p{margin:0;font-size:15px}
+  .copy{margin:14px 0}
+  .copy-h{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:4px}
+  .copy-h span{font-size:12.5px;color:var(--muted);font-weight:600;letter-spacing:.02em}
+  html:not(.js) .copy-btn{display:none}
+  .copy-btn{font:600 12.5px var(--sans);border:1px solid var(--accent);color:var(--accent);background:transparent;border-radius:999px;padding:3px 12px;cursor:pointer}
+  .copy-btn:hover{background:var(--tint)}
+  .copy pre{font-family:var(--sans);font-size:14.5px;white-space:pre-wrap;background:var(--tint);border:1px solid var(--line);border-radius:10px;padding:12px 14px;margin:0;color:var(--ink);line-height:1.5}
+  @media (max-width:560px){.goal{grid-template-columns:1fr}.step{grid-template-columns:48px 1fr}.num{font-size:32px}.row{grid-template-columns:1fr}.pick{grid-template-columns:1fr}}
+  @media (max-width:700px){.flow{grid-template-columns:1fr 1fr}}
+  @media (max-width:420px){.flow{grid-template-columns:1fr}}
+  @media print{ .jump{position:static} figure,.note,.ask,.goal>div,.flow>div,.pick>div,tr,.row,.copy{break-inside:avoid} .step{break-inside:avoid} .step:has(figure){break-inside:auto} h2,h3,.sub h4,.who{break-after:avoid} footer{break-before:avoid} .copy-btn{display:none} body{padding:0 0 24px} }
+  @media (max-width:560px){#fix table,#who table{min-width:600px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <div class="eyebrow">Front Office &middot; IT Setup &middot; Office how-to &middot; Sample Month Year</div>
+  <h1>Connecting the Office Printer</h1>
+  <p class="lede">Every laptop in the front office needs the same shared printer added once. This guide covers turning it on, adding it to a laptop, and printing a test page.</p>
+  <div class="goal">
+    <div><div class="k">What you need</div><div class="v">Admin access on the laptop, about five minutes, and the printer's network address (ask IT if you don't have it).</div></div>
+    <div><div class="k">Good to know</div><div class="v">The printer stays on the office network once it's added &mdash; you will not need to add it again after a restart.</div></div>
+  </div>
+</header>
+
+<nav class="jump" aria-label="Jump to section">
+  <a href="#flow">Flow</a>
+  <a href="#fit">Can/can't</a>
+  <a href="#part-a">A Set up once (1&ndash;2)</a>
+  <a href="#part-b">B Every print job (3)</a>
+  <a href="#ready" class="hl">Done when</a>
+</nav>
+
+<h2 id="flow">The flow at a glance</h2>
+<div class="flow">
+  <div><span class="n">1</span><p><b>Confirm it's online.</b> The printer shows up under Connected devices in Settings.</p></div>
+  <div><span class="n">2</span><p><b>Add it to your laptop.</b> One trip through Settings &rarr; Printers &amp; Scanners.</p></div>
+  <div><span class="n">3</span><p><b>Print a test page.</b> Any document, File &rarr; Print, choose it by name.</p></div>
+  <div><span class="n">4</span><p><b>Still stuck?</b> Tell IT &mdash; the fallback address is in copy block A below.</p></div>
+</div>
+
+<h2 id="fit">What the office printer can and can't do here</h2>
+<p class="intro">The honest version, so nobody goes looking for a feature that isn't there.</p>
+<div class="tbl"><table>
+  <thead><tr><th>What you want</th><th>Supported</th><th>How it's handled</th></tr></thead>
+  <tbody>
+    <tr><td>Print in color</td><td><b>Yes</b></td><td>Choose <b>Color</b> in the print dialog before clicking Print.</td></tr>
+    <tr><td>Scan a page to your own email</td><td><b>Yes, once added</b></td><td>Lift the scanner lid, choose <b>Email</b> on the printer's own panel.</td></tr>
+    <tr><td>Print straight from a phone</td><td><b>No</b></td><td>Email yourself the file and print it from a laptop instead (Part B).</td></tr>
+  </tbody>
+</table></div>
+
+<div class="same">
+  <p><b>Already in place (checked this month)</b></p>
+  <ul>
+    <li>The printer is already powered on and connected to the office network.</li>
+    <li>IT has already shared it under the name <code>Office-Printer</code>.</li>
+  </ul>
+</div>
+
+<h2 id="part-a">Part A &middot; Set up once</h2>
+<div class="steps">
+
+  <div class="step" id="step-1"><div class="num">1</div><div>
+    <h3>Confirm the printer is online</h3>
+    <div class="who"><b>Anyone</b> &middot; about 1 minute</div>
+    <div class="row"><div class="k">Where</div><div class="path">Settings <i>&rarr;</i> Network <i>&rarr;</i> Connected devices</div></div>
+    <div class="row"><div class="k">Have ready</div><div><ul>
+      <li>The printer's network name or address (ask IT if you don't have it).</li>
+      <li>Admin access on the laptop.</li>
+    </ul></div></div>
+    <div class="row"><div class="k">Do this</div><div>Check that <b>Office-Printer</b> appears in the connected-devices list.</div></div>
+    <div class="row"><div class="k">Check</div><div>The list shows Office-Printer as online.</div></div>
+    <div class="note">If it doesn't appear, the printer may be asleep &mdash; press any button on its panel and wait about 30 seconds, then check again.</div>
+    <figure><div class="figure-placeholder">[ Connected devices list, with Office-Printer highlighted ]</div>
+    <figcaption>The Connected devices list, with Office-Printer highlighted.</figcaption></figure>
+  </div></div>
+
+  <div class="step" id="step-2"><div class="num">2</div><div>
+    <h3>Add the printer to your laptop</h3>
+    <div class="who"><b>Anyone</b> &middot; about 5 minutes</div>
+    <div class="row"><div class="k">Where</div><div class="path">Settings <i>&rarr;</i> Printers &amp; Scanners <i>&rarr;</i> <b>Add Printer</b></div></div>
+    <div class="row"><div class="k">Do this</div><div><ol>
+      <li>Click <b>Add Printer</b>.</li>
+      <li>Select <b>Office-Printer</b> from the list, or type its address by hand.</li>
+      <li>Click <b>Add</b>, then press <kbd>Esc</kbd> to close the window.</li>
+    </ol></div></div>
+    <div class="row"><div class="k">Check</div><div>Office-Printer appears in your printer list.</div></div>
+    <div class="sub">
+      <h4><span>&sect;</span>If it doesn't show up in the list</h4>
+      <p>Type the address by hand instead of browsing for it &mdash; copy block A below is the exact address IT uses.</p>
+    </div>
+    <div class="copy">
+      <div class="copy-h"><span>Copy block A &middot; Printer address</span><button type="button" class="copy-btn">Copy</button></div>
+      <pre>\\PRINT-SERVER\Office-Printer</pre>
+    </div>
+  </div></div>
+
+</div>
+
+<h2 id="part-b">Part B &middot; Every print job</h2>
+<p class="intro">Nothing to set up here &mdash; just choosing the right printer by name.</p>
+
+<div class="steps">
+
+  <div class="step" id="step-3"><div class="num">3</div><div>
+    <h3>Print a test page</h3>
+    <div class="who"><b>Anyone</b> &middot; about 2 minutes</div>
+    <div class="row"><div class="k">Where</div><div>any document &rarr; <b>File</b> &rarr; <b>Print</b></div></div>
+    <div class="row"><div class="k">Do this</div><div>Choose <b>Office-Printer</b> from the printer list, then click <b>Print</b>.</div></div>
+    <div class="row"><div class="k">Check</div><div>A page comes out of the printer within about a minute.</div></div>
+    <p class="intro">Two ways to print &mdash; pick whichever fits the document.</p>
+    <div class="pick">
+      <div><span class="tag">Recommended</span><p><b>Print in black and white.</b> Faster, and uses far less toner &mdash; the default for everyday pages.</p></div>
+      <div><p><b>Print in color.</b> Choose <b>Color</b> in the print dialog for anything with photos or charts.</p></div>
+    </div>
+  </div></div>
+
+</div>
+
+<div class="ask" id="ready">
+  <h2>Done when</h2>
+  <div class="check">
+    <label><input type="checkbox"> Office-Printer shows under Settings &rarr; Printers &amp; Scanners on your laptop.</label>
+    <label><input type="checkbox"> A one-page test print comes out of the printer within about a minute.</label>
+    <label><input type="checkbox"> You know where to find the fallback address (copy block A) if auto-discovery ever stops working.</label>
+  </div>
+</div>
+
+<footer>Sources: Office IT setup notes, Sample Month Year.</footer>
+</div>
+<script>
+document.querySelectorAll('.copy-btn').forEach(function(btn){
+  btn.addEventListener('click', function(){
+    var pre = btn.closest('.copy').querySelector('pre');
+    var text = pre.textContent;
+    navigator.clipboard.writeText(text).then(function(){
+      var orig = btn.textContent;
+      btn.textContent = 'Copied';
+      setTimeout(function(){ btn.textContent = orig; }, 1500);
+    });
+  });
+});
+</script>
+</body>
+</html>

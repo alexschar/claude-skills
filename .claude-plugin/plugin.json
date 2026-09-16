@@ -1,7 +1,7 @@
 {
   "name": "alexschar-skills",
-  "version": "1.0.0",
-  "description": "Alex Schar's self-contained Claude Code skills: planning (spar, war-doc, plan-interrogator, gap-check), review (fact-check, try-again), communication (bite-size, plain-english), and utilities (secret-sweep, shopper, loopy, ui-redesign-from-reference).",
+  "version": "1.1.0",
+  "description": "Alex Schar's self-contained Claude Code skills: planning (spar, war-doc, plan-interrogator, gap-check), review (fact-check, try-again), communication (bite-size, plain-english), design & explainer (instruction-artifact, design-taste-recall, design-dna, office-guide), and utilities (secret-sweep, shopper, loopy, ui-redesign-from-reference).",
   "author": {
     "name": "Alex Schar",
     "url": "https://alexschar.dev"
