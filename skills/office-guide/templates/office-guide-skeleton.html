@@ -76,7 +76,7 @@
   .live{font-size:13px;margin:10px 0 0}
   .live a{color:var(--accent);font-weight:600;text-decoration:underline}
   .live span{color:var(--muted)}
-  [id^="step-"],#flow,#fit,#part-a,#part-b,#who,#fix,#ready{scroll-margin-top:64px}
+  h2[id],[id^="step-"],[id^="part-"],#flow,#fit,#who,#fix,#ready,#folders{scroll-margin-top:64px}
   html{scroll-behavior:smooth}
   @media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}
   figure{margin:14px 0 2px;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:var(--surface)}
@@ -101,7 +101,7 @@
   @media (max-width:560px){.goal{grid-template-columns:1fr}.step{grid-template-columns:48px 1fr}.num{font-size:32px}.row{grid-template-columns:1fr}.pick{grid-template-columns:1fr}}
   @media (max-width:700px){.flow{grid-template-columns:1fr 1fr}}
   @media (max-width:420px){.flow{grid-template-columns:1fr}}
-  @media print{ .jump{position:static} figure,.note,.ask,.goal>div,.flow>div,.pick>div,tr,.row,.copy{break-inside:avoid} .step{break-inside:avoid} .step:has(figure){break-inside:auto} h2,h3,.sub h4,.who{break-after:avoid} footer{break-before:avoid} .copy-btn{display:none} body{padding:0 0 24px} }
+  @media print{ .jump{position:static} .steps{display:block} .steps .step{margin-bottom:12px} figure,.note,.ask,.same,.goal>div,.flow>div,.pick>div,tr,.row,.copy{break-inside:avoid} .step{break-inside:avoid} .step:has(figure),.step:has(.copy),.step:has(.pick){break-inside:auto} h2,h3,.sub h4,.who{break-after:avoid} footer{break-before:avoid} .copy-btn{display:none} body{padding:0 0 24px} }
   @media (max-width:560px){#fix table,#who table{min-width:600px}}
 </style>
 </head>
